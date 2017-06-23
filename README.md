@@ -1,31 +1,11 @@
-# Angular2 and PrimeNG example
-
-## What is this?
-
-It is example of Angular2 application with nested routes, nested components.
-
-There are three pages
-
-### Chart
-
-![Chart](doc/chart.png "Page with chart")
-
-### Table
-
-![Chart](doc/table.png "Page with table data")
-
-### Settings
-
-![Chart](doc/settings.png "Page with settings")
-
-## Installation
+# Angular2 and PrimeNG calculator
 
 Instruction for Debian/Ubuntu.
 
 Clone this repository:
 
 ```
-git clone git@github.com:mnvx/angular2-primeng-example.git
+git clone git@github.com:expert90/calculator.git
 ```
 
 Run
