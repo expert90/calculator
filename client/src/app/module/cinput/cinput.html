@@ -1,0 +1,215 @@
+<router-outlet>
+  <div class="cinput center-block">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <h2 class="content">Current status
+          <p>Please fill the data...</p>
+        </h2>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="content">
+
+        <!-- General -->
+        <div class="ui-g">
+          <div class="ui-g-6"><h4>General</h4></div>
+          <div class="ui-g-6"></div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg1"></i></div>
+              <div class="ui-g-11"><label for="b2">Alerts/correlations per day</label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b2 class="form-control lg" id="b2">
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg2"></i></div>
+              <div class="ui-g-11"><label for="b3">Number of analysts</label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b3 class="form-control" id="b3">
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg3"></i></div>
+              <div class="ui-g-11"><label for="b4">Fully loaded cost per analyst [Analyst's annual salary]</label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b4 class="form-control lg" id="b4"> $
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg4"></i></div>
+              <div class="ui-g-11"><label for="b5">How many different products report security events to your SIEM?</label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b5 class="form-control" id="b5">
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg11"></i></div>
+              <div class="ui-g-11"><label for="b6">Is your SOC manned only during the day?</label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b6 class="form-control" id="b6">
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg5"></i></div>
+              <div class="ui-g-11"><label for="b7">How long on average does it take to deal with a single alert (minutes) <p>Enter -1 if this value is unknown</p></label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b7 class="form-control" id="b7"> Min
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg6"></i></div>
+              <div class="ui-g-11"><label for="b8">Learning curve of new analysts (weeks)</label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b8 class="form-control" id="b8"> Weeks
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg7"></i></div>
+              <div class="ui-g-11"><label for="b9">Number of playbooks</label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b9 class="form-control" id="b9">
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg8"></i></div>
+              <div class="ui-g-11"><label for="b10">Number of reports per month <p>Analyst / SoC manager</p></label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b10 class="form-control" id="b10">
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg9"></i></div>
+              <div class="ui-g-11"><label for="b11">How much time spent creating reports on average (hours)</label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b11 class="form-control" id="b11"> Hours
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg10"></i></div>
+              <div class="ui-g-11"><label for="b12">How much hunting do your analysts do per month (hours)</label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b12 class="form-control" id="b12"> Hours
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g">
+              <div class="ui-g-1"><i class="ico_bg11"></i></div>
+              <div class="ui-g-11"><label for="b13">how much time it takes to change shift? <p>(sharing information about open cases and such - minutes)</p></label></div>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <input type="text" #b13 class="form-control" id="b13"> Min
+          </div>
+        </div>
+
+        <!-- Government/Multi SOC/SLA -->
+        <div class="ui-g">
+          <div class="ui-g-6"><h4>Government/Multi SOC/SLA</h4></div>
+          <div class="ui-g-6"></div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6"><div class="ui-g-12"><label for="b16">Sharing information between SOCs - How long it takes to pass on knowledge (hours)</label></div></div>
+          <div class="ui-g-6">
+            <input type="text" #b16 class="form-control" id="b16"> Hours
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6"><div class="ui-g-12"><label for="b17">Maximum time allowed before reporting to customers (minutes)</label></div></div>
+          <div class="ui-g-6">
+            <input type="text" #b17 class="form-control" id="b17"> Min
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6"><div class="ui-g-12"><label for="b18">Maximum time allowed before reporting to government (minutes)</label></div></div>
+          <div class="ui-g-6">
+            <input type="text" #b18 class="form-control" id="b18"> Min
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6"><div class="ui-g-12"><label for="b19">Average penalty for SLA failure</label></div></div>
+          <div class="ui-g-6">
+            <input type="text" #b19 class="form-control lg" id="b19"> $
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6"><div class="ui-g-12"><label for="b20">Are there incidents that you exceed the time given by the SLA for alerts?</label></div></div>
+          <div class="ui-g-6">
+            <input type="text" #b20 class="form-control lg" id="b20">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p-dialog header="Godfather I" [(visible)]="display" modal="modal" width="300" [responsive]="true">
+      <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding. 
+         His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. 
+         Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, 
+         kind and benevolent to those who give respect, 
+         but given to ruthless violence whenever anything stands against the good of the family.</p>
+        <p-footer>
+          <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="display=false" label="No"></button>
+            <button type="button" pButton icon="fa-check" (click)="display=false" label="Yes"></button>
+          </div>
+        </p-footer>
+    </p-dialog>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <div class="content">
+          <button pButton (click)="showDialog()" type="button" class="btn btn-default" >GENERATE</button>
+        </div>
+      </div>
+    </nav>
+
+  </div>
+</router-outlet>

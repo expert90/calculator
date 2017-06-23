@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <base href="/">
+
+    <title>Angular2 and c3 example</title>
+
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="build/vendors/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="build/vendors/angular2/bundles/angular2.dev.js"></script>
+    <script src="build/vendors/angular2/bundles/http.dev.js"></script>
+    <script src="build/vendors/angular2/bundles/router.dev.js"></script>
+    <script src="build/vendors/systemjs/dist/system.src.js"></script>
+
+    <script src="build/vendors/rxjs/bundles/Rx.js"></script>
+    <script src="build/vendors/primeui/primeui-ng-all.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+    <link href="build/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="build/vendors/primeui/primeui-ng-all.min.css" />
+
+    <link href="build/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="build/img/favicon.png?"/>
+
+    <script>
+      System.config({
+        defaultJSExtensions: true,
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        },
+        paths: {
+          'angular2/*': 'build/vendors/angular2/*',
+          'rxjs/*': 'build/vendors/rxjs/*',
+          'primeng/*': 'build/vendors/primeng/*'
+        },
+        map: {
+          "/primeng": "build/vendors/primeng"
+        }
+      });
+      System.import('build/app/index')
+        .then(null, console.error.bind(console));
+    </script>
+  </head>
+  <body>
+    <app class="main">
+      <div class="login center-block vertical-center">
+        <div class="container">
+          Loading...
+        </div>
+      </div>
+    </app>
+
+    <footer class="footer">
+      <p>Copyright &copy; 2015 siemplify All rights reserved</p>
+    </footer>
+
+  </body>
+</html>
