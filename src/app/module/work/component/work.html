@@ -185,22 +185,39 @@
             <input type="text" #b20 class="form-control lg" id="b20">
           </div>
         </div>
+        <div class="ui-g">
+          <div class="ui-g-6"><div class="ui-g-12"><label for="c112">Overall improvement in Security Analyst performance via reduction in the number of alerts in the system (Grouping and identical cases) <p>Alert reduction ratio</p></label></div></div>
+          <div class="ui-g-6">
+            <input type="text" #c112 class="form-control" id="c112">
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6"><div class="ui-g-12"><label for="c113">Improve investigation time using automatic WorkFlows and Playbook guidance <p>Time saved per case (%s)</p></label></div></div>
+          <div class="ui-g-6">
+            <input type="text" #c113 class="form-control" id="c113">
+          </div>
+        </div>
       </div>
     </div>
 
-    <p-dialog header="Godfather I" [(visible)]="display" modal="modal" width="300" [responsive]="true">
-      <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding. 
-         His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. 
-         Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, 
-         kind and benevolent to those who give respect, 
-         but given to ruthless violence whenever anything stands against the good of the family.</p>
-        <p-chart type="bar" [data]="data"></p-chart>
-        <p-footer>
-          <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-            <button type="button" pButton icon="fa-close" (click)="display=false" label="No">No</button>
-            <button type="button" pButton icon="fa-check" (click)="display=false" label="Yes">Yes</button>
-          </div>
-        </p-footer>
+    <p-dialog header="Created on : February 18 at 1:20pm" [(visible)]="display" modal="modal" [width]="1200" [responsive]="true">
+      
+      <div class="ui-g">
+        <div class="ui-g-6"> <!-- Learning curve for new analysts -->
+          <p-chart type="line" [data]="data1_1" (onDataSelect)="selectData($event)"></p-chart>
+        </div>
+        <div class="ui-g-6"> <!-- Average time spent on alerts/cases -->
+          <p-chart type="line" [data]="data1_2" (onDataSelect)="selectData($event)"></p-chart>
+        </div>
+      </div>
+      
+
+      <p-footer>
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+          <button type="button" pButton icon="fa-close" (click)="display=false" label="No">No</button>
+          <button type="button" pButton icon="fa-check" (click)="display=false" label="Yes">Yes</button>
+        </div>
+      </p-footer>
     </p-dialog>
 
     <!-- Fixed navbar -->
