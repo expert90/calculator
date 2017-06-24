@@ -1,11 +1,8 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {Http} from '@angular/http';
-import {FormsModule} from '@angular/forms';
 
 import {contentHeaders} from './../../common/headers';
-
-declare var module: any
 
 @Component({
   

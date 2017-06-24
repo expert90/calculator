@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
+require("chart.js");
 var WorkComponent = (function () {
     function WorkComponent(router, http) {
         this.router = router;
@@ -18,6 +19,23 @@ var WorkComponent = (function () {
         this.display = false;
     }
     WorkComponent.prototype.showDialog = function () {
+        this.data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+                {
+                    label: 'My First dataset',
+                    backgroundColor: '#42A5F5',
+                    borderColor: '#1E88E5',
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                },
+                {
+                    label: 'My Second dataset',
+                    backgroundColor: '#9CCC65',
+                    borderColor: '#7CB342',
+                    data: [28, 48, 40, 19, 86, 27, 90]
+                }
+            ]
+        };
         this.display = true;
     };
     return WorkComponent;

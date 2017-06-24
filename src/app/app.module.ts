@@ -9,9 +9,7 @@ import {LoginComponent} from './module/login/component/login';
 import {WorkComponent} from './module/work/component/work';
 import {AppComponent} from './app.component';
 
-import {DialogModule} from 'primeng/primeng';
-
-declare var module: any
+import {DialogModule, ChartModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
@@ -20,6 +18,7 @@ declare var module: any
     HttpModule,
     FormsModule,
     DialogModule,
+    ChartModule,
     BrowserAnimationsModule
   ],
   declarations: [
