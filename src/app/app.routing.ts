@@ -4,7 +4,7 @@ import { LoginComponent } from './module/login/component/login';
 import { WorkComponent } from './module/work/component/work';
 
 const appRoutes: Routes = [
-	{ path: '', component: WorkComponent, pathMatch: 'full' },
+	{ path: '', component: LoginComponent, pathMatch: 'full' },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'workspace', component: WorkComponent }
 ];

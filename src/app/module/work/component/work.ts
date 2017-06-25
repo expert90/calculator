@@ -13,8 +13,122 @@ import {Calculation} from '../../common/calculation';
 export class WorkComponent  { 
 	
 	display: boolean = false;
-	data1_1: any;
-	data1_2: any;
+	
+	data1_1: any; 
+	data1_1_options: any = {
+		title: {
+      display: true,
+      text: 'LEARNING CURVE FOR NEW ANALYSTS',
+      fontSize: 16
+    }
+	};
+
+	data1_2: any; 
+	data1_2_options: any = {
+		title: {
+      display: true,
+      text: 'AVERAGE TIME SPENT ON ALERTS/CASES',
+      fontSize: 16
+    },
+  	scales:{
+      xAxes: [{
+        stacked: true
+      }],
+      yAxes: [{
+      	stacked: true
+      }]
+  	}
+	};
+
+	data2_1: any; 
+	data2_1_options: any = {
+		title: {
+      display: true,
+      text: 'PLAYBOOKS',
+      fontSize: 16
+    }
+	};
+
+	data2_2: any;
+	data2_2_options: any = {
+		title: {
+      display: true,
+      text: 'HOURS SPENT CREATING REPORTS - MONTHLY',
+      fontSize: 16
+    }
+	};
+
+	data3_1: any;
+	data3_1_options: any = {
+		title: {
+      display: true,
+      text: 'HOURS SPENT HUNTING THREATS',
+      fontSize: 16
+    }
+	};
+
+	data3_2: any;
+	data3_2_options: any = {
+		title: {
+      display: true,
+      text: 'ANALYST (VIRTUAL) AMOUNT',
+      fontSize: 16
+    }
+	};
+
+	data4_1: any;
+	data4_1_options: any = {
+		title: {
+      display: true,
+      text: 'ANALYST SHIFT CHANGE',
+      fontSize: 16
+    }
+	};
+
+	data4_2: any;
+	data4_2_options: any = {
+		title: {
+      display: true,
+      text: 'TIME TO UPDATE POLICIES FROM OTHER SOCS (WORKFLOW)',
+      fontSize: 16
+    }
+	};
+
+	data5_1: any;
+	data5_1_options: any = {
+		title: {
+      display: true,
+      text: 'INCIDENT REPORT TIME',
+      fontSize: 16
+    }
+	};
+
+	data5_2: any;
+	data5_2_options: any = {
+		title: {
+      display: true,
+      text: 'SLA AVERAGE MONTHLY PENALTY',
+      fontSize: 16
+    }
+	};
+
+	data6_1: any;
+	data6_1_options: any = {
+		title: {
+      display: true,
+      text: 'NIGHT SHIFT',
+      fontSize: 16
+    }
+	};
+
+	data6_2: any;
+	data6_2_options: any = {
+		title: {
+      display: true,
+      text: 'ALERT CAPACITY',
+      fontSize: 16
+    }
+	};
 
   constructor(public router: Router, public http: Http) {
   }
@@ -36,34 +150,200 @@ export class WorkComponent  {
           label: 'Siemplify',
           data: data1_1_siemplify["yData"],
           fill: false,
-          borderColor: '#4bc0c0'
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4'
         },
         {
           label: 'SIEM',
           data: data1_1_siem["yData"],
           fill: false,
-          borderColor: '#565656'
+          backgroundColor: '#ed7d31',
+          borderColor: '#ed7d31'
         }
       ]
     };
 
+    let data1_2_dataGathering = calc.data1_2_dataGathering(input);
+  	let data1_2_triage = calc.data1_2_triage(input);
+  	let data1_2_investigation = calc.data1_2_investigation(input);
+
     this.data1_2 = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: ['', 'SIEMPLIFY', 'SIEM', ''],
       datasets: [
         {
-          label: 'First Dataset',
-          data: [65, 59, 80, 81, 56, 55, 40],
-          fill: false,
-          borderColor: '#4bc0c0'
+          label: 'Data gathering',
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4',
+          data: data1_2_dataGathering
         },
         {
-          label: 'Second Dataset',
-          data: [28, 48, 40, 19, 86, 27, 90],
-          fill: false,
-          borderColor: '#565656'
+          label: 'Triage',
+          backgroundColor: '#ed7d31',
+          borderColor: '#ed7d31',
+          data: data1_2_triage
+        },
+        {
+          label: 'Investigation',
+          backgroundColor: '#70ad47',
+          borderColor: '#70ad47',
+          data: data1_2_investigation
         }
       ]
-    }
+    };
+
+    let data2_1 = calc.data2_1(input);
+
+    this.data2_1 = {
+      labels: ['', 'SIEMPLIFY', 'SIEM', ''],
+      datasets: [
+        {
+          label: 'Playbooks',
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4',
+          data: data2_1
+        }
+      ]
+    };
+
+    let data2_2 = calc.data2_2(input);
+
+    this.data2_2 = {
+      labels: ['', 'SIEMPLIFY - AUTOMATIC', 'SIEM', ''],
+      datasets: [
+        {
+          label: 'Hours spent creating reports - monthly',
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4',
+          data: data2_2
+        }
+      ]
+    };
+
+    let data3_1 = calc.data3_1(input);
+
+    this.data3_1 = {
+      labels: ['', 'SIEMPLIFY', 'SIEM', ''],
+      datasets: [
+        {
+          label: 'Hours spent hunting threats',
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4',
+          data: data3_1
+        }
+      ]
+    };
+
+    let data3_2 = calc.data3_2(input);
+
+    this.data3_2 = {
+      labels: ['', 'SIEMPLIFY', 'SIEM', ''],
+      datasets: [
+        {
+          label: 'Analyst (virtual) amount',
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4',
+          data: data3_2
+        }
+      ]
+    };
+
+    let data4_1 = calc.data4_1(input);
+
+    this.data4_1 = {
+      labels: ['', 'SIEMPLIFY', 'SIEM', ''],
+      datasets: [
+        {
+          label: 'Analyst shift change',
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4',
+          data: data4_1
+        }
+      ]
+    };
+
+    let data4_2 = calc.data4_2(input);
+
+    this.data4_2 = {
+      labels: ['', 'SIEMPLIFY', 'SIEM', ''],
+      datasets: [
+        {
+          label: 'Time to update policies from other SOCS (workflow)',
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4',
+          data: data4_2
+        }
+      ]
+    };
+
+    let data5_1_government = calc.data5_1_government(input);
+    let data5_1_customer = calc.data5_1_customer(input);
+    let data5_1_average = calc.data5_1_average(input);
+
+    this.data5_1 = {
+      labels: ['SIEMPLIFY', 'SIEM'],
+      datasets: [
+        {
+          label: 'Time to report to government',
+          backgroundColor: '#ff0000',
+          borderColor: '#ff0000',
+          data: data5_1_government
+        },
+        {
+          label: 'Time to report to customer',
+          backgroundColor: '#ed7d31',
+          borderColor: '#ed7d31',
+          data: data5_1_customer
+        },
+        {
+          label: 'Average time untill after triage',
+          backgroundColor: '#70ad47',
+          borderColor: '#70ad47',
+          data: data5_1_average
+        }
+      ]
+    };
+
+    let data5_2 = calc.data5_2(input);
+
+    this.data5_2 = {
+      labels: ['', 'SIEMPLIFY', 'SIEM', ''],
+      datasets: [
+        {
+          label: 'SLA Average Monthly penalty',
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4',
+          data: data5_2
+        }
+      ]
+    };
+
+    let data6_1 = calc.data6_1(input);
+
+    this.data6_1 = {
+      labels: ['', 'SIEMPLIFY', 'SIEM', ''],
+      datasets: [
+        {
+          label: 'Night shift',
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4',
+          data: data6_1
+        }
+      ]
+    };
+
+    let data6_2 = calc.data6_2(input);
+
+    this.data6_2 = {
+      labels: ['', 'SIEMPLIFY', 'SIEM', ''],
+      datasets: [
+        {
+          label: 'Alert capacity',
+          backgroundColor: '#4472c4',
+          borderColor: '#4472c4',
+          data: data6_2
+        }
+      ]
+    };
 
     this.display = true;
   }

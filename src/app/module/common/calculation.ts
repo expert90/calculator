@@ -131,4 +131,272 @@ export class Calculation {
 
 		return data;
 	}
+
+	data1_2_dataGathering(input: any) {
+		let data: any;
+
+		this.dash["O2"] = (input["B7"] == -1) ? 0 : 1;
+
+		this.dash["N2"] = Math.round(this.dash["M2"] * input["B7"] * 100) / 100 * this.dash["O2"];
+
+		this.dash["L7"] = Math.round(0.15 * this.dash["N2"] * 100) / 100;
+		this.dash["L8"] = this.dash["N2"];
+
+		data = [
+			0,
+			this.dash["L7"], 
+			this.dash["L8"],
+			0
+		];
+
+		return data;
+	}
+
+	data1_2_triage(input: any) {
+		let data: any;
+
+		this.dash["O2"] = (input["B7"] == -1) ? 0 : 1;
+
+		this.dash["N3"] = Math.round(this.dash["M3"] * input["B7"] * 100) / 100 * this.dash["O2"];
+		this.dash["E3"] = 1 / Math.sqrt(Math.floor(Math.sqrt(input["B5"])));
+
+		this.dash["M7"] = Math.round(this.dash["N3"] * input["C112"] * this.dash["E3"] * 0.9 * 100) / 100;
+		this.dash["M8"] = this.dash["N3"];
+
+		data = [
+			0,
+			this.dash["M7"], 
+			this.dash["M8"],
+			0
+		];
+
+		return data;
+	}
+
+	data1_2_investigation(input: any) {
+		let data: any;
+
+		this.dash["O2"] = input["B7"] == -1 ? 0 : 1;
+
+		this.dash["N4"] = Math.round(this.dash["M4"] * input["B7"] * 100) / 100 * this.dash["O2"];
+		this.dash["E3"] = 1 / Math.sqrt(Math.floor(Math.sqrt(input["B5"])));
+
+		this.dash["N7"] = Math.round(this.dash["N4"] * (input["C113"] * this.dash["E3"] * 9 + 1) / 10 * 100) / 100;
+		this.dash["N8"] = this.dash["N4"];
+
+		data = [
+			0,
+			this.dash["N7"], 
+			this.dash["N8"],
+			0
+		];
+
+		return data;
+	}
+
+	data2_1(input: any) {
+		let data: any;
+
+		this.dash["R3"] = input["B9"];
+
+		data = [
+			0,
+			this.dash["R2"],
+			this.dash["R3"],
+			0
+		];
+
+		return data;
+	}
+
+	data2_2(input: any) {
+		let data: any;
+
+		this.dash["Q8"] = input["B11"] * input["B10"];
+		this.dash["Q7"] = 0.1 * this.dash["Q8"];		
+
+		data = [
+			0,
+			this.dash["Q7"],
+			this.dash["Q8"],
+			0
+		];
+
+		return data;
+	}
+
+	data3_1(input: any) {
+		let data: any;
+
+		this.dash["AB3"] = input["B12"];
+		this.dash["AB2"] = 1.5 * this.dash["AB3"];
+
+		data = [
+			0,
+			this.dash["AB2"],
+			this.dash["AB3"],
+			0
+		];
+
+		return data;
+	}
+
+	data3_2(input: any) {
+		let data: any;
+
+		this.dash["B3"] = (1 - input["C112"]) * input["B2"];
+
+		this.dash["C3"] = this.dash["B3"] * (1 + (-1 * input["C113"]));
+
+		this.result["D2"] = Math.floor(input["B2"] / this.dash["C3"]);
+
+		this.dash["AL3"] = input["B3"];
+		this.dash["AL2"] = this.dash["AL3"] * this.result["D2"];
+
+		data = [
+			0,
+			this.dash["AL2"],
+			this.dash["AL3"],
+			0
+		];
+
+		return data;
+	}
+
+	data4_1(input: any) {
+		let data: any;
+
+		this.dash["R13"] = (input["B13"] == -1) ? 0 : 1;
+
+		this.dash["Q13"] = 5 * this.dash["R13"];
+		this.dash["Q14"] = input["B13"] * this.dash["R13"];
+
+		data = [
+			0,
+			this.dash["Q13"],
+			this.dash["Q14"],
+			0
+		];
+
+		return data;
+	}
+
+	data4_2(input: any) {
+		let data: any;
+
+		this.dash["Q26"] = input["B16"];
+
+		data = [
+			0,
+			this.dash["Q25"],
+			this.dash["Q26"],
+			0
+		];
+
+		return data;
+	}
+
+	data5_1_government(input: any) {
+		let data: any;
+
+		this.dash["C45"] = input["B18"];
+		this.dash["D45"] = input["B18"];
+
+		data = [
+			this.dash["C45"],
+			this.dash["D45"]
+		];
+
+		return data;
+	}
+
+	data5_1_customer(input: any) {
+		let data: any;
+
+		this.dash["C46"] = input["B17"];
+		this.dash["D46"] = input["B17"];
+
+		data = [
+			this.dash["C46"],
+			this.dash["D46"]
+		];
+
+		return data;
+	}
+
+	data5_1_average(input: any) {
+		let data: any;
+
+		/**
+		 *	
+		 *	this.dash["L7"]: already calculated
+		 *	this.dash["M7"]: already calculated
+		 *	this.dash["N2"]: already calculated
+		 *	this.dash["N3"]: already calculated
+		 *	
+		 **/
+
+		this.dash["C47"] = this.dash["L7"] + this.dash["M7"];
+		this.dash["D47"] = this.dash["N2"] + this.dash["N3"];
+
+		data = [
+			this.dash["C47"],
+			this.dash["D47"]
+		];
+
+		return data;
+	}
+
+	data5_2(input: any) {
+		let data: any;
+
+		this.dash["H48"] = input["B19"] * input["B20"] * input["B2"];
+
+		data = [
+			0,
+			this.dash["H47"],
+			this.dash["H48"],
+			0
+		];
+
+		return data;
+	}
+
+	data6_1(input: any) {
+		let data: any;
+
+		this.dash["AC30"] = input["B6"] * input["B2"] / 24 * 15;
+		this.dash["AC31"] = 0
+
+		data = [
+			0,
+			this.dash["AC30"],
+			this.dash["AC31"],
+			0
+		];
+
+		return data;
+	}
+
+	data6_2(input: any) {
+		let data: any;
+
+		/**
+		 *	
+		 *	this.result["D2"]: already calculated
+		 *	
+		 **/
+
+		this.dash["AL31"] = input["B2"] * this.result["D2"];
+		this.dash["AL32"] = input["B2"];
+
+		data = [
+			0,
+			this.dash["AL31"],
+			this.dash["AL32"],
+			0
+		];
+
+		return data;
+	}
 }
