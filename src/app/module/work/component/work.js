@@ -18,7 +18,8 @@ var WorkComponent = (function () {
         this.router = router;
         this.http = http;
         this.input = {
-            "B2": "", "B3": "", "B4": "", "B5": "", "B6": "", "B7": "", "B8": "", "B9": "", "B10": "", "B11": "", "B12": "", "B13": "", "B16": "", "B17": "", "B18": "", "B19": "", "B20": "", "C112": "", "C113": ""
+            /*"B2" : "", "B3" : "", "B4" : "", "B5" : "", "B6" : "", "B7" : "", "B8" : "", "B9" : "", "B10" : "", "B11" : "", "B12" : "", "B13" : "", "B16" : "", "B17" : "", "B18" : "", "B19" : "", "B20" : "", "C112" : "", "C113" : ""*/
+            "B2": "100", "B3": "5", "B4": "75000", "B5": "15", "B6": "0", "B7": "1", "B8": "10", "B9": "20", "B10": "50", "B11": "0.5", "B12": "150", "B13": "30", "B16": "72", "B17": "15", "B18": "60", "B19": "10000", "B20": "0.0001", "C112": "0.5", "C113": "0.4"
         };
         this.msgs = [];
         this.display = false;
@@ -314,20 +315,6 @@ var WorkComponent = (function () {
             ]
         };
         this.display = true;
-    };
-    WorkComponent.prototype.generatePDF = function () {
-        window.html2canvas(document.getElementById('calculator'), {
-            onrendered: function (canvas) {
-                var data = canvas.toDataURL();
-                var docDefinition = {
-                    content: [{
-                            image: data,
-                            width: 500,
-                        }]
-                };
-                window.pdfMake.createPdf(docDefinition).download("test.pdf");
-            }
-        });
     };
     return WorkComponent;
 }());

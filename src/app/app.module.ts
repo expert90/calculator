@@ -11,8 +11,6 @@ import {AppComponent} from './app.component';
 
 import {DialogModule, ChartModule, GrowlModule} from 'primeng/primeng';
 
-
-
 @NgModule({
   imports: [
     BrowserModule,

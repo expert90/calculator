@@ -16,6 +16,34 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript">
+      function generatePDF() {
+        var canvas = document.getElementById('calculator');
+        var context = canvas.getContext("2d");
+
+        html2canvas(document.getElementById("calculator1"), {
+          onrendered: function(can1) {
+            context.drawImage(can1, 0, 0);
+
+            html2canvas(document.getElementById("calculator2"), {
+              onrendered: function(can2) {
+                context.drawImage(can2, 0, 200);
+
+                var data = canvas.toDataURL();
+
+                var docDefinition = {
+                  content: [{
+                    image: data,
+                    width: 500,
+                  }]
+                };
+                pdfMake.createPdf(docDefinition).download("calculation.pdf");
+              }
+            });
+          }
+        });
+      }
+    </script>
 
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/themes/omega/theme.css" />

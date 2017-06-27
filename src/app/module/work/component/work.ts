@@ -4,8 +4,6 @@ import {Http} from '@angular/http';
 
 import {Message} from 'primeng/primeng';
 import 'chart.js';
-import {pdfMake} from 'pdfmake';
-import {html2canvas} from 'html2canvas';
 
 import {Calculation} from '../../common/calculation';
 
@@ -16,7 +14,10 @@ import {Calculation} from '../../common/calculation';
 export class WorkComponent  { 
 
 	input: any = {
-		"B2" : "", "B3" : "", "B4" : "", "B5" : "", "B6" : "", "B7" : "", "B8" : "", "B9" : "", "B10" : "", "B11" : "", "B12" : "", "B13" : "", "B16" : "", "B17" : "", "B18" : "", "B19" : "", "B20" : "", "C112" : "", "C113" : ""
+		/*"B2" : "", "B3" : "", "B4" : "", "B5" : "", "B6" : "", "B7" : "", "B8" : "", "B9" : "", "B10" : "", "B11" : "", "B12" : "", "B13" : "", "B16" : "", "B17" : "", "B18" : "", "B19" : "", "B20" : "", "C112" : "", "C113" : ""*/
+		
+		"B2" : "100", "B3" : "5", "B4" : "75000", "B5" : "15", "B6" : "0", "B7" : "1", "B8" : "10", "B9" : "20", "B10" : "50", "B11" : "0.5", "B12" : "150", "B13" : "30", "B16" : "72", "B17" : "15", "B18" : "60", "B19" : "10000", "B20" : "0.0001", "C112" : "0.5", "C113" : "0.4"
+		
 	};
 
 	msgs: Message[] = [];
@@ -145,17 +146,15 @@ export class WorkComponent  {
   _keyPress(event: any) {
   	let currentStr = event.target.value + String.fromCharCode(event.charCode);
 
-  	var anchor = RegExp('^' + require('float-regex').source + '$');
+  	let anchor = RegExp('^' + require('float-regex').source + '$');
   	if (!anchor.test(currentStr)) {
 	  	event.preventDefault();
   	}
 	}
 
   showDialog() {
-
-  	
-
-  	for (var key in this.input) {
+  
+  	for (let key in this.input) {
   		if (this.input[key] == '') {
   			document.getElementById(key).focus();
   			this.msgs.push({severity:'error', summary:'Error Message', detail:'All inputs are required.'});
@@ -374,21 +373,6 @@ export class WorkComponent  {
 
     this.display = true;
 
-  }
-
-  generatePDF() {
-  	window.html2canvas(document.getElementById('calculator'), {
-      onrendered: function (canvas) {
-        var data = canvas.toDataURL();
-        var docDefinition = {
-          content: [{
-            image: data,
-            width: 500,
-          }]
-        };
-        window.pdfMake.createPdf(docDefinition).download("test.pdf");
-      }
-    });
   }
 
 }

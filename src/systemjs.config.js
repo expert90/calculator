@@ -34,8 +34,6 @@
       'primeng': 'npm:primeng',
       'chart.js': 'npm:chart.js/dist/Chart.bundle.js', 
       'float-regex': 'npm:float-regex/index.js',
-      'pdfmake': 'npm:pdfmake/build/pdfmake.js',
-      'html2canvas': 'npm:html2canvas/dist/html2canvas.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
