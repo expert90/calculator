@@ -29,6 +29,7 @@ AppModule = __decorate([
             forms_1.FormsModule,
             primeng_1.DialogModule,
             primeng_1.ChartModule,
+            primeng_1.GrowlModule,
             animations_1.BrowserAnimationsModule
         ],
         declarations: [

@@ -2,7 +2,10 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {Http} from '@angular/http';
 
+import {Message} from 'primeng/primeng';
 import 'chart.js';
+import {pdfMake} from 'pdfmake';
+import {html2canvas} from 'html2canvas';
 
 import {Calculation} from '../../common/calculation';
 
@@ -11,6 +14,12 @@ import {Calculation} from '../../common/calculation';
 })
 
 export class WorkComponent  { 
+
+	input: any = {
+		"B2" : "", "B3" : "", "B4" : "", "B5" : "", "B6" : "", "B7" : "", "B8" : "", "B9" : "", "B10" : "", "B11" : "", "B12" : "", "B13" : "", "B16" : "", "B17" : "", "B18" : "", "B19" : "", "B20" : "", "C112" : "", "C113" : ""
+	};
+
+	msgs: Message[] = [];
 	
 	display: boolean = false;
 	
@@ -133,15 +142,33 @@ export class WorkComponent  {
   constructor(public router: Router, public http: Http) {
   }
 
+  _keyPress(event: any) {
+  	let currentStr = event.target.value + String.fromCharCode(event.charCode);
+
+  	var anchor = RegExp('^' + require('float-regex').source + '$');
+  	if (!anchor.test(currentStr)) {
+	  	event.preventDefault();
+  	}
+	}
+
   showDialog() {
-  	let input = {
-  		"B2" : 100, "B3" : 5, "B4" : 75000, "B5" : 15, "B6" : 0, "B7" : 1, "B8" : 10, "B9" : 20, "B10" : 50, "B11" : 0.5, "B12" : 150, "B13" : 30, "B16" : 72, "B17" : 15, "B18" : 60, "B19" : 10000, "B20" : 0.0001, "C112" : 0.5, "C113" : 0.4
-  	};
+
+  	
+
+  	for (var key in this.input) {
+  		if (this.input[key] == '') {
+  			document.getElementById(key).focus();
+  			this.msgs.push({severity:'error', summary:'Error Message', detail:'All inputs are required.'});
+  			return;
+  		}
+  	}
+
+  	this.msgs = [];
 
   	let calc = new Calculation();
 
   	let data1_1_siemplify = calc.data1_1_siemplify();
-  	let data1_1_siem = calc.data1_1_siem(input);
+  	let data1_1_siem = calc.data1_1_siem(this.input);
 
   	this.data1_1 = {
       labels: data1_1_siemplify["xData"],
@@ -163,9 +190,9 @@ export class WorkComponent  {
       ]
     };
 
-    let data1_2_dataGathering = calc.data1_2_dataGathering(input);
-  	let data1_2_triage = calc.data1_2_triage(input);
-  	let data1_2_investigation = calc.data1_2_investigation(input);
+    let data1_2_dataGathering = calc.data1_2_dataGathering(this.input);
+  	let data1_2_triage = calc.data1_2_triage(this.input);
+  	let data1_2_investigation = calc.data1_2_investigation(this.input);
 
     this.data1_2 = {
       labels: ['', 'SIEMPLIFY', 'SIEM', ''],
@@ -191,7 +218,7 @@ export class WorkComponent  {
       ]
     };
 
-    let data2_1 = calc.data2_1(input);
+    let data2_1 = calc.data2_1(this.input);
 
     this.data2_1 = {
       labels: ['', 'SIEMPLIFY', 'SIEM', ''],
@@ -205,7 +232,7 @@ export class WorkComponent  {
       ]
     };
 
-    let data2_2 = calc.data2_2(input);
+    let data2_2 = calc.data2_2(this.input);
 
     this.data2_2 = {
       labels: ['', 'SIEMPLIFY - AUTOMATIC', 'SIEM', ''],
@@ -219,7 +246,7 @@ export class WorkComponent  {
       ]
     };
 
-    let data3_1 = calc.data3_1(input);
+    let data3_1 = calc.data3_1(this.input);
 
     this.data3_1 = {
       labels: ['', 'SIEMPLIFY', 'SIEM', ''],
@@ -233,7 +260,7 @@ export class WorkComponent  {
       ]
     };
 
-    let data3_2 = calc.data3_2(input);
+    let data3_2 = calc.data3_2(this.input);
 
     this.data3_2 = {
       labels: ['', 'SIEMPLIFY', 'SIEM', ''],
@@ -247,7 +274,7 @@ export class WorkComponent  {
       ]
     };
 
-    let data4_1 = calc.data4_1(input);
+    let data4_1 = calc.data4_1(this.input);
 
     this.data4_1 = {
       labels: ['', 'SIEMPLIFY', 'SIEM', ''],
@@ -261,7 +288,7 @@ export class WorkComponent  {
       ]
     };
 
-    let data4_2 = calc.data4_2(input);
+    let data4_2 = calc.data4_2(this.input);
 
     this.data4_2 = {
       labels: ['', 'SIEMPLIFY', 'SIEM', ''],
@@ -275,9 +302,9 @@ export class WorkComponent  {
       ]
     };
 
-    let data5_1_government = calc.data5_1_government(input);
-    let data5_1_customer = calc.data5_1_customer(input);
-    let data5_1_average = calc.data5_1_average(input);
+    let data5_1_government = calc.data5_1_government(this.input);
+    let data5_1_customer = calc.data5_1_customer(this.input);
+    let data5_1_average = calc.data5_1_average(this.input);
 
     this.data5_1 = {
       labels: ['SIEMPLIFY', 'SIEM'],
@@ -303,7 +330,7 @@ export class WorkComponent  {
       ]
     };
 
-    let data5_2 = calc.data5_2(input);
+    let data5_2 = calc.data5_2(this.input);
 
     this.data5_2 = {
       labels: ['', 'SIEMPLIFY', 'SIEM', ''],
@@ -317,7 +344,7 @@ export class WorkComponent  {
       ]
     };
 
-    let data6_1 = calc.data6_1(input);
+    let data6_1 = calc.data6_1(this.input);
 
     this.data6_1 = {
       labels: ['', 'SIEMPLIFY', 'SIEM', ''],
@@ -331,7 +358,7 @@ export class WorkComponent  {
       ]
     };
 
-    let data6_2 = calc.data6_2(input);
+    let data6_2 = calc.data6_2(this.input);
 
     this.data6_2 = {
       labels: ['', 'SIEMPLIFY', 'SIEM', ''],
@@ -346,6 +373,22 @@ export class WorkComponent  {
     };
 
     this.display = true;
+
+  }
+
+  generatePDF() {
+  	window.html2canvas(document.getElementById('calculator'), {
+      onrendered: function (canvas) {
+        var data = canvas.toDataURL();
+        var docDefinition = {
+          content: [{
+            image: data,
+            width: 500,
+          }]
+        };
+        window.pdfMake.createPdf(docDefinition).download("test.pdf");
+      }
+    });
   }
 
 }
