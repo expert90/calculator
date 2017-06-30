@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular QuickStart</title>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="build/vendors/core-js/client/shim.min.js"></script>
+
+    <script src="build/vendors/zone.js/dist/zone.js"></script> 
+    <script src="build/vendors/systemjs/dist/system.src.js"></script>  
+
+    <script src="systemjs.config.js"></script>
+<!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript">
+    /*  function showGraph() {
+        var canvas = document.getElementById('calculator');
+        var context = canvas.getContext("2d");
+
+        html2canvas(document.getElementById("calculator1"), {
+          onrendered: function(can1) {
+            context.drawImage(can1, 0, 0);
+
+            document.getElementById("calculator1").style.display = "none";
+
+            html2canvas(document.getElementById("calculator2"), {
+              onrendered: function(can2) {
+                context.drawImage(can2, 0, 246);
+
+                document.getElementById("calculator2").style.display = "none";
+
+                html2canvas(document.getElementById("calculator3"), {
+                  onrendered: function(can3) {
+                    context.drawImage(can3, 0, 492);
+
+                    document.getElementById("calculator3").style.display = "none";
+
+                    html2canvas(document.getElementById("calculator4"), {
+                      onrendered: function(can4) {
+                        context.drawImage(can4, 0, 738);
+
+                        document.getElementById("calculator4").style.display = "none";
+
+                        html2canvas(document.getElementById("calculator5"), {
+                          onrendered: function(can5) {
+                            context.drawImage(can5, 0, 984);
+
+                            document.getElementById("calculator5").style.display = "none";
+
+                            html2canvas(document.getElementById("calculator6"), {
+                              onrendered: function(can6) {
+                                context.drawImage(can6, 0, 1230);
+
+                                document.getElementById("calculator6").style.display = "none";
+                              }
+                            });
+
+                          }
+                        });
+
+                      }
+                    });
+
+                  }
+                });
+                
+              }
+            });
+          }
+        });
+      }
+
+      function generatePDF() {
+        var canvas = document.getElementById('calculator');
+        var context = canvas.getContext("2d");
+
+        var data = canvas.toDataURL();
+
+        var docDefinition = {
+          content: [{
+            image: data,
+            width: 500,
+          }]
+        };
+        pdfMake.createPdf(docDefinition).download("calculation.pdf");
+      }*/
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="build/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="build/vendors/primeng/resources/themes/omega/theme.css" />
+    <link rel="stylesheet" type="text/css" href="build/vendors/primeng/resources/primeng.min.css" />
+    <link rel="stylesheet" type="text/css" href="build/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="build//css/style.css">
+
+    <script>
+    /**
+ * System configuration for Angular samples
+ * Adjust as necessary for your application needs.
+ */
+  System.config({
+    paths: {
+      // paths serve as alias
+      'npm:': 'build/vendors/',
+      'primeng/*': 'build/vendors/primeng/*'
+    },
+    // map tells the System loader where to look for things
+    map: {
+      // our app is within the app folder
+      'app': 'build/app',
+
+      // angular bundles
+      '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
+      '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
+      '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
+      '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
+      '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+      '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
+      '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
+      '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+      '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
+      '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
+      '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
+      '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+
+      // other libraries
+      'rxjs':                      'npm:rxjs',
+      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+      'primeng': 'npm:primeng',
+      'chart.js': 'npm:chart.js/dist/Chart.bundle.js', 
+      'float-regex': 'npm:float-regex/index.js',
+      'jspdf': 'npm:jspdf/dist/jspdf.debug.js',
+      'tslib': 'npm:tslib'
+    },
+    // packages tells the System loader how to load when no filename and/or no extension
+    packages: {
+      app: {
+        format: 'register',
+        defaultExtension: 'js',
+        meta: {
+          './*.js': {
+            loader: 'systemjs-angular-loader.js'
+          }
+        }
+      },
+      rxjs: {
+        defaultExtension: 'js'
+      },
+      'build/vendors/primeng': {
+        format: 'cjs',
+        defaultExtension: 'js'
+      },
+      'tslib': {
+        defaultExtension: 'js'
+      }
+    }
+  });
+
+      System.import('build/app/main').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+
+  <body>
+
+    <my-app class="main">
+      <router-outlet>
+        <div class="login center-block vertical-center">
+          <div class="container">
+            Loading...
+          </div>
+        </div>
+      </router-outlet>
+    </my-app>
+
+    <footer class="footer">
+      <p>Copyright &copy; 2015 siemplify All rights reserved</p>
+    </footer>
+
+  </body>
+</html>
