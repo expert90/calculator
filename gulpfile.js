@@ -16,16 +16,16 @@ var paths = {
   scripts: 'client/src/js/**/*.*',
   vendors: [
     'node_modules/@angular/**/*.js',
-    'node_modules/bootstrap/**/*.css',
+    'node_modules/bootstrap/**/*.*',
     'node_modules/rxjs/**/*.js',
-    'node_modules/core-js/**/*.js',
+    'node_modules/core-js/**/*.*',
     'node_modules/zone.js/**/*.js',
     'node_modules/chart.js/**/*.js',
     'node_modules/tslib/**/*.*',
     'node_modules/systemjs/**/*.js',
-    'node_modules/primeng/**/*.js',
-    'node_modules/primeng/**/*.css',
-    'node_modules/font-awesome/**/*.css'
+    //'node_modules/primeng/**/*.js',
+    'node_modules/primeng/**/*.*',
+    'node_modules/font-awesome/**/*.*'
   ],
   ts: 'client/src/app/**/*.ts',
   styles: [
