@@ -1,0 +1,58 @@
+
+  <div class="center-block">
+
+      <div class="ui-g" id="calculator1">
+        <div class="ui-g-6"> <!-- Learning curve for new analysts -->
+          <p-chart type="line" [data]="data1_1" [options]="data1_1_options"></p-chart>
+        </div>
+        <div class="ui-g-6"> <!-- Average time spent on alerts/cases -->
+          <p-chart type="bar" [data]="data1_2" [options]="data1_2_options"></p-chart>
+        </div>
+      </div>
+
+      <div class="ui-g" id="calculator2">
+        <div class="ui-g-6"> <!-- Playbooks -->
+          <p-chart type="bar" [data]="data2_1" [options]="data2_1_options"></p-chart>
+        </div>
+        <div class="ui-g-6"> <!-- Hours spent creating reports - monthly -->
+          <p-chart type="bar" [data]="data2_2" [options]="data2_2_options"></p-chart>
+        </div>
+      </div>
+      
+      <div class="ui-g" id="calculator3">
+        <div class="ui-g-6"> <!-- Hours spent hunting threats -->
+          <p-chart type="bar" [data]="data3_1" [options]="data3_1_options"></p-chart>
+        </div>
+        <div class="ui-g-6"> <!-- Analyst (virtual) amount -->
+          <p-chart type="bar" [data]="data3_2" [options]="data3_2_options"></p-chart>
+        </div>
+      </div>
+
+      <div class="ui-g" id="calculator4">
+        <div class="ui-g-6"> <!-- Analyst shift change -->
+          <p-chart type="bar" [data]="data4_1" [options]="data4_1_options"></p-chart>
+        </div>
+        <div class="ui-g-6"> <!-- Time to update policies from other socs (workflow) -->
+          <p-chart type="bar" [data]="data4_2" [options]="data4_2_options"></p-chart>
+        </div>
+      </div>
+
+      <div class="ui-g" id="calculator5">
+        <div class="ui-g-6"> <!-- Incident report time -->
+          <p-chart type="bar" [data]="data5_1" [options]="data5_1_options"></p-chart>
+        </div>
+        <div class="ui-g-6"> <!-- SLA average monthly penalty -->
+          <p-chart type="bar" [data]="data5_2" [options]="data5_2_options"></p-chart>
+        </div>
+      </div>
+
+      <div class="ui-g" id="calculator6">
+        <div class="ui-g-6"> <!-- Night shift -->
+          <p-chart type="bar" [data]="data6_1" [options]="data6_1_options"></p-chart>
+        </div>
+        <div class="ui-g-6"> <!-- Alert capacity -->
+          <p-chart type="bar" [data]="data6_2" [options]="data6_2_options"></p-chart>
+        </div>
+      </div>
+
+  </div>
