@@ -146,20 +146,44 @@ export class WorkComponent  {
   }
 
   _keyPress(event: any) {
-  	/*let currentStr = event.target.value + String.fromCharCode(event.charCode);
+    /*let valid = false;
+    let newStr = String.fromCharCode(event.charCode);
+    let currentStr = event.target.value;
+    let regNum = new RegExp('[0-9]+$');
 
-  	let anchor = RegExp('^' + require('float-regex').source + '$');
-  	if (!anchor.test(currentStr)) {
-	  	event.preventDefault();
-  	}*/
+    if (currentStr == '') {
+      if (newStr === '-' || newStr === '+' || regNum.test(newStr))
+        valid = true;
+    }
+    else {
+      if (currentStr.indexOf('.') === false) {
+        if (newStr === '.' || regNum.test(newStr))
+          valid = true;
+      }
+      else if (regNum.test(newStr))
+        valid = true;
+    }
+
+    if (!valid) {
+      event.preventDefault();
+    }*/
+
 	}
 
   showDialog() {
 
+    let B6 = <HTMLInputElement> document.getElementById('B6');
+    if (B6.checked) { // this is checkbox
+      this.input['B6'] = 1;
+    }
+    else {
+      this.input['B6'] = 0;
+    }
+
   	for (let key in this.input) {
-  		if (this.input[key] == '') {
+  		if (this.input[key] === '' || Number.parseFloat(this.input[key]) != this.input[key]) {
   			document.getElementById(key).focus();
-  			this.msgs.push({severity:'error', summary:'Error Message', detail:'All inputs are required.'});
+  			this.msgs.push({severity:'error', summary:'Error Message', detail:'All inputs should be required and valid.'});
   			return;
   		}
   	}

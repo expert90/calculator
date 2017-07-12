@@ -43,7 +43,7 @@
           <div class="ui-g-6">
             <div class="ui-g">
               <div class="ui-g-1"><i class="ico_bg3"></i></div>
-              <div class="ui-g-11"><label for="B4">Fully loaded cost per analyst [Analyst's annual salary]</label></div>
+              <div class="ui-g-11"><label for="B4"><!--Fully loaded cost per analyst [Analyst's annual salary]-->Annual salary per analyst</label></div>
             </div>
           </div>
           <div class="ui-g-6">
@@ -69,25 +69,25 @@
             </div>
           </div>
           <div class="ui-g-6">
-            <input type="text" #B6 class="form-control" id="B6" (keypress)="_keyPress($event)" [(ngModel)]="input['B6']">
+            <input type="checkbox" class="form-control checkbox" id="B6" value="1">
           </div>
         </div>
         <div class="ui-g">
           <div class="ui-g-6">
             <div class="ui-g">
               <div class="ui-g-1"><i class="ico_bg5"></i></div>
-              <div class="ui-g-11"><label for="B7">How long on average does it take to deal with a single alert (minutes) <p>Enter -1 if this value is unknown</p></label></div>
+              <div class="ui-g-11"><label for="B7">How long does it take to deal with a single alert? <p>If this value is unknown, enter -1</p></label></div>
             </div>
           </div>
           <div class="ui-g-6">
-            <input type="text" #B7 class="form-control" id="B7" (keypress)="_keyPress($event)" [(ngModel)]="input['B7']"> Min
+            <input type="text" #B7 class="form-control" id="B7" (keypress)="_keyPress($event)" [(ngModel)]="input['B7']"> Minutes
           </div>
         </div>
         <div class="ui-g">
           <div class="ui-g-6">
             <div class="ui-g">
               <div class="ui-g-1"><i class="ico_bg6"></i></div>
-              <div class="ui-g-11"><label for="B8">Learning curve of new analysts (weeks)</label></div>
+              <div class="ui-g-11"><label for="B8">Training period per analyst</label></div>
             </div>
           </div>
           <div class="ui-g-6">
@@ -109,7 +109,7 @@
           <div class="ui-g-6">
             <div class="ui-g">
               <div class="ui-g-1"><i class="ico_bg8"></i></div>
-              <div class="ui-g-11"><label for="B10">Number of reports per month <p>Analyst / SoC manager</p></label></div>
+              <div class="ui-g-11"><label for="B10">Number of reports per month <p>Analyst / SOC manager</p></label></div>
             </div>
           </div>
           <div class="ui-g-6">
@@ -120,7 +120,7 @@
           <div class="ui-g-6">
             <div class="ui-g">
               <div class="ui-g-1"><i class="ico_bg9"></i></div>
-              <div class="ui-g-11"><label for="B11">How much time spent creating reports on average (hours)</label></div>
+              <div class="ui-g-11"><label for="B11">How long does it take to create a single report?</label></div>
             </div>
           </div>
           <div class="ui-g-6">
@@ -131,22 +131,22 @@
           <div class="ui-g-6">
             <div class="ui-g">
               <div class="ui-g-1"><i class="ico_bg10"></i></div>
-              <div class="ui-g-11"><label for="B12">How much hunting do your analysts do per month (hours)</label></div>
+              <div class="ui-g-11"><label for="B12">Time per month spent hunting</label></div>
             </div>
           </div>
           <div class="ui-g-6">
-            <input type="text" #B12 class="form-control" id="B12" (keypress)="_keyPress($event)" [(ngModel)]="input['B12']"> Hours
+            <input type="text" #B12 class="form-control" id="B12" (keypress)="_keyPress($event)" [(ngModel)]="input['B12']"> Hours (average)
           </div>
         </div>
         <div class="ui-g">
           <div class="ui-g-6">
             <div class="ui-g">
               <div class="ui-g-1"><i class="ico_bg11"></i></div>
-              <div class="ui-g-11"><label for="B13">how much time it takes to change shift? <p>(sharing information about open cases and such - minutes)</p></label></div>
+              <div class="ui-g-11"><label for="B13">How long does it take to hand over a shift?</label></div>
             </div>
           </div>
           <div class="ui-g-6">
-            <input type="text" #B13 class="form-control" id="B13" (keypress)="_keyPress($event)" [(ngModel)]="input['B13']"> Min
+            <input type="text" #B13 class="form-control" id="B13" (keypress)="_keyPress($event)" [(ngModel)]="input['B13']"> Minutes (average)
           </div>
         </div>
 
@@ -156,21 +156,21 @@
           <div class="ui-g-6"></div>
         </div>
         <div class="ui-g">
-          <div class="ui-g-6"><div class="ui-g-12"><label for="B16">Sharing information between SOCs - How long it takes to pass on knowledge (hours)</label></div></div>
+          <div class="ui-g-6"><div class="ui-g-12"><label for="B16">How long does it take to convey information to other SOCs?</label></div></div>
           <div class="ui-g-6">
             <input type="text" #B16 class="form-control" id="B16" (keypress)="_keyPress($event)" [(ngModel)]="input['B16']"> Hours
           </div>
         </div>
         <div class="ui-g">
-          <div class="ui-g-6"><div class="ui-g-12"><label for="B17">Maximum time allowed before reporting to customers (minutes)</label></div></div>
+          <div class="ui-g-6"><div class="ui-g-12"><label for="B17">Maximum time allowed before reporting to customers</label></div></div>
           <div class="ui-g-6">
-            <input type="text" #B17 class="form-control" id="B17" (keypress)="_keyPress($event)" [(ngModel)]="input['B17']"> Min
+            <input type="text" #B17 class="form-control" id="B17" (keypress)="_keyPress($event)" [(ngModel)]="input['B17']"> Minutes
           </div>
         </div>
         <div class="ui-g">
-          <div class="ui-g-6"><div class="ui-g-12"><label for="B18">Maximum time allowed before reporting to government (minutes)</label></div></div>
+          <div class="ui-g-6"><div class="ui-g-12"><label for="B18">Maximum time allowed before reporting to government</label></div></div>
           <div class="ui-g-6">
-            <input type="text" #B18 class="form-control" id="B18" (keypress)="_keyPress($event)" [(ngModel)]="input['B18']"> Min
+            <input type="text" #B18 class="form-control" id="B18" (keypress)="_keyPress($event)" [(ngModel)]="input['B18']"> Minutes
           </div>
         </div>
         <div class="ui-g">
@@ -186,13 +186,13 @@
           </div>
         </div>
         <div class="ui-g">
-          <div class="ui-g-6"><div class="ui-g-12"><label for="C112">Overall improvement in Security Analyst performance via reduction in the number of alerts in the system (Grouping and identical cases) <p>Alert reduction ratio</p></label></div></div>
+          <div class="ui-g-6"><div class="ui-g-12"><label for="C112">Improvement in Security Analyst performance measured in terms of reduction of number of alerts in the system (Grouping and identical cases) <p>Alert reduction ratio</p></label></div></div>
           <div class="ui-g-6">
             <input type="text" #C112 class="form-control" id="C112" (keypress)="_keyPress($event)" [(ngModel)]="input['C112']">
           </div>
         </div>
         <div class="ui-g">
-          <div class="ui-g-6"><div class="ui-g-12"><label for="C113">Improve investigation time using automatic WorkFlows and Playbook guidance <p>Time saved per case (%s)</p></label></div></div>
+          <div class="ui-g-6"><div class="ui-g-12"><label for="C113">Time saved (decrease in investigation time) by using automatic WorkFlows and Playbook guidance <p>Time saved per case (%s)</p></label></div></div>
           <div class="ui-g-6">
             <input type="text" #C113 class="form-control" id="C113" (keypress)="_keyPress($event)" [(ngModel)]="input['C113']">
           </div>
@@ -260,7 +260,7 @@
 
       <p-footer>
         <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-          <button type="button" pButton icon="fa-check" (click)="generatePDF()" label="Yes">Generate PDF</button>
+          <!--<button type="button" pButton icon="fa-check" (click)="generatePDF()" label="Yes">Generate PDF</button>-->
         </div>
       </p-footer>
     </p-dialog>
